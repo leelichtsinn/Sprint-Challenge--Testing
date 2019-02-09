@@ -40,6 +40,15 @@ describe('the route handlers', () => {
   });
 
   describe('POST /games', () => {
+    it('responds with 201 when body is correct', async () => {
+      const body = {
+        title: 'Pacman',
+        genre: 'Arcade',
+        releaseYear: 1980
+      };
+      const response = await request(server).post('/games').send(body);
+      expect(response.status).toBe(201);
+    });
 
   });
 
