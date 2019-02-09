@@ -20,6 +20,7 @@ server.post('/games', async (req, res) => {
   const game = req.body;
   if (game.title && game.genre) {
     const id = await games.push(game);
+    console.log('the id',id);
     res.status(201).json(id);
   } else {
     res.status(422).json({ error: 'missing title or genre' });

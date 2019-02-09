@@ -56,6 +56,16 @@ describe('the route handlers', () => {
       expect(response.status).toBe(422);
     });
 
+    it('sends json on success', async () => {
+      const body = {
+        title: 'Pacman',
+        genre: 'Arcade',
+        releaseYear: 1980
+      };
+      const response = await request(server).post('/games').send(body);
+      expect(response.type).toMatch(/json/i);
+    });
+
   });
 
 });
