@@ -16,6 +16,16 @@ server.get('/games', async (req, res) => {
   res.status(200).send(games);
 });
 
+server.post('/games', async (req, res) => {
+  const game = req.body;
+  if (game.title && game.genre) {
+    const id = await games.push(game);
+    res.status(201).json(id);
+  } else {
+    res.status(422).json({ error: 'missing title or genre' });
+  }
+});
+
 module.exports = server;
 
 
