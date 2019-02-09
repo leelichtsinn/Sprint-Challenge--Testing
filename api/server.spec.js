@@ -31,7 +31,12 @@ describe('the route handlers', () => {
       const response = await request(server).get('/games');
       expect(response.type).toMatch(/json/i);
     });
-    
+
+    it('sends correct response object', async () => {
+    const response = await request(server).get('/games');
+    expect(response.body).toEqual([]);
+    });
+
   });
 
   describe('POST /games', () => {
