@@ -10,12 +10,12 @@ describe('the route handlers', () => {
     });
 
     it('responds with json', async () => {
-      const response = await requrest(server).get('/');
+      const response = await request(server).get('/');
       expect(response.type).toMatch(/json/i);
     });
 
     it('sends correct response object', async () => {
-      const response = await requrest(server).get('/');
+      const response = await request(server).get('/');
       expect(response.body).toEqual({ api: 'up and running' });
     });
 
