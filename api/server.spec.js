@@ -3,7 +3,7 @@ const request = require('supertest');
 const server = require('./server.js');
 
 describe('the route handlers', () => {
-  describe('get /', () => {
+  describe('GET /', () => {
     it('responds with 200 status', async () => {
       const response = await request(server).get('/');
       expect(response.status).toBe(200);
@@ -18,6 +18,18 @@ describe('the route handlers', () => {
       const response = await request(server).get('/');
       expect(response.body).toEqual({ api: 'up and running' });
     });
+
+  });
+
+  describe('GET /games', () => {
+    it('responds with 200 status', async () => {
+      const response = await request(server).get('/games');
+      expect(response.status).toBe(200);
+    });
+    
+  });
+
+  describe('POST /games', () => {
 
   });
 

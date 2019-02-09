@@ -12,6 +12,10 @@ server.get('/', async (req, res) => {
   }
 });
 
+server.get('/games', async (req, res) => {
+  res.status(200).send(games);
+});
+
 module.exports = server;
 
 
